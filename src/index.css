@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+:root {
+    --body-bg: linear-gradient(to right, #19547b, #ffd89b); /* default */
+  }
+  
+ 
+  
+
+body {
+   
+    color: var(--body-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: var(--body-bg);
+    transition: background 0.5s ease;
+    
+    overflow-x: hidden;
+    scroll-padding-top: 70px; 
+    cursor: url('/mouse-cursor.png'), auto; 
+    
+background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+
+
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+  }
+  
+
+  .nav-items a {
+    transition: all 0.5s ease-in-out; /* Smooth hover effect */
+  }
+

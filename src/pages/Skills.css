@@ -1,0 +1,176 @@
+/* .myimg{
+    height: 200px;
+    width: 200px;
+   border-radius: 17% 83% 68% 32% / 35% 26% 74% 65% ;
+    overflow: hidden;
+    border: 1px solid red;
+} */
+/* .myimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } */
+  .myimg {
+    width: 300px; /* Adjust as needed */
+    height: 300px;
+    position: relative;
+    overflow: hidden; /* Ensures no overflow */
+ 
+    border-radius: 17% 83% 68% 32% / 35% 26% 74% 65% ;
+}
+
+.myimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the div */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+  
+  
+
+.skillContainer{
+    position: relative;
+}
+
+.absolute{
+    position: absolute;
+    font-size: 7em;
+    bottom: 10%;
+    left:18%;
+
+    /* right: -10%; */
+    
+    font-weight: bold;
+    z-index: -1;
+    color: #ae94f756;
+}
+.absolute2{
+    position: absolute;
+    font-size: 7em;
+    bottom: 50%;
+    left:18%;
+
+    /* right: -10%; */
+    
+    font-weight: bold;
+    z-index: -1;
+    color: #ae94f756;
+}
+.absolute3{
+    position: absolute;
+    font-size: 7em;
+    bottom: 70%;
+    left:70%;
+
+    /* right: -10%; */
+    
+    font-weight: bold;
+    z-index: -1;
+    color: #ae94f756;
+}
+
+.skills{
+    margin: 2rem;
+    width: 97%;
+    padding: 10px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.skcontain{
+    width: 100%;
+    display: flex;
+}
+.sktable {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); /* Ensures wrapping properly */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center; /* Centers items */
+    align-items: start; /* Aligns items at the top */
+}
+
+
+
+.sktable > div {
+    background: #f4f4f45f;
+    /* padding: 15px;
+    border-radius: 10px;
+    text-align: center; */
+    /* border: 1px solid red; */
+}
+
+.secondhalf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.buttons{
+    display: flex;
+    margin: 3rem;
+    padding: 1rem;
+    justify-content: space-between;
+
+}
+.ofgrid{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 18rem;
+        padding: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.ofgrid ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+
+}
+.ofgrid ul li:first-child {
+    /* Your styles here */
+    color: red; /* Example: Change text color to red */
+    list-style: none;
+    text-align: center;
+    
+  }
+  .ofgrid ul li:not(:first-child) {
+    /* Your styles here */
+    color: blue; /* Example: Change text color to blue */
+    font-size: larger;
+  }
+  .ofgrid:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+  }
+  .popupText {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    opacity: 0;
+    font-size: 0.9rem;
+    transition: all 0.6s ease;
+    z-index: 10;
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  .ofgrid:hover .popupText {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+  }
+  .popupText:hover {
+    /* background-color: #4b4b4b; */
+    background-color: red;
+  }
