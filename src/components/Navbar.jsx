@@ -28,6 +28,7 @@
 import { FaMediumM } from "react-icons/fa";
 import style from "./Navbar.module.css";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = ({value}) => {
   
@@ -66,6 +67,7 @@ export const Navbar = ({value}) => {
       }, 500); // Adjust time for smoother effect
     }
   };
+  const navigate=useNavigate();
 
   return (
     <div className={style.container}>
@@ -76,10 +78,10 @@ export const Navbar = ({value}) => {
         </div>
         <div className={style["nav-items"]}>
           <ul>
-            <li><button onClick={() => scrollToSection("home")}>Home</button></li>
-            <li><button onClick={() => scrollToSection("about")}>About</button></li>
-            <li><button onClick={() => scrollToSection("skills")}>Skills</button></li>
-            <li><button onClick={() => scrollToSection("contact")}>Contact</button></li>
+            <li><button onClick={() => navigate("/")}>Home</button></li>
+            <li><button onClick={() => navigate("/projects")}>projects</button></li>
+            <li><button onClick={() =>navigate("/skills")}>Skills</button></li>
+            <li><button onClick={() => navigate("/contact")}>Contact</button></li>
           </ul>
         </div>
       </div>

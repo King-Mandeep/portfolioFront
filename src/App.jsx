@@ -38,21 +38,75 @@
 
 
 // App.jsx
-import { Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainLayout } from "./MainLayout";
 import { HireForm } from "./pages/HireMeform";
+import { Layout } from "./pages/layout";
+import { Skills } from "./pages/Skills";
+import { Home } from "./pages/Home";
+import { Projects } from "./pages/Projects";
+import { Contact } from "./pages/Contact";
+import { ThemeContext } from "styled-components";
+import { useEffect, useState } from "react";
+import { darkTheme, lightTheme } from "./themes/allthemes";
+const router=createBrowserRouter([
+{
+  path:"/",element:<Layout/>,
+  children:[
+{
+  path:"/",element: <Home></Home>
+},
+{
+  path:"/skills",element: <Skills></Skills>
+},
+{
+  path:"/projects",element: <Projects></Projects>
+},
+{
+  path:"/contact",element: <Contact></Contact>
+}
+
+  ]
+},
+{
+  path:"/hireme",element:  <HireForm></HireForm>
+}
+
+])
 
 const App = () => {
+  const [theme,setTheme]=useState("dark");
+  const applyTheme=(themeObject)=>{
+  const root=document.documentElement;
+  for(let key in themeObject){
+    root.style.setProperty(key,themeObject[key]);
+  }
+  };
+  const handleThemeChange=(selectedTheme)=>{
+    setTheme(selectedTheme);
+    if(selectedTheme==="dark"){
+      applyTheme(darkTheme);
+    }
+    else{
+      applyTheme(lightTheme);
+    }
+  };
+  useEffect(()=>{
+handleThemeChange(theme);
+      },[]);
   return (
    
-      <Routes>
-        {/* MainLayout wraps your always-visible content */}
-        <Route path="/" element={<MainLayout />}>
-          {/* Nested route to render Form inside MainLayout */}
-          <Route path="form" element={<HireForm/>} />
-        </Route>
-      </Routes>
-     
+      // <Routes>
+      //   {/* MainLayout wraps your always-visible content */}
+      //   <Route path="/" element={<MainLayout />}>
+      //     {/* Nested route to render Form inside MainLayout */}
+      //     <Route path="form" element={<HireForm/>} />
+      //   </Route>
+      // </Routes>
+      <ThemeContext.Provider value={{theme,setTheme:handleThemeChange}}>
+     <RouterProvider router={router}/>
+     </ThemeContext.Provider>
+  
    
   );
 };

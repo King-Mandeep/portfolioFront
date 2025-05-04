@@ -1,4 +1,5 @@
 .hero-section{
+    background-color: var(--holeCompDark);
     display: flex;
     position: relative;
     justify-content: center;
@@ -8,14 +9,15 @@
     margin: 4rem auto;
     padding:  4rem 1rem;
 
-    max-width: 1200px;
+    /* max-width: 1200px; */
     /* overflow: hidden; */
 }
 .faded-text{
     position: absolute;
     user-select: none;
     font-size: 7em;
-    color: #ae94f756;
+    /* color: #ae94f756; */
+    color: var(--fontDark);
 
     bottom: -16%;
     left:-1%;
@@ -30,7 +32,8 @@
 }
 .hero-heading{
     font-size: 35px;
-    color: #343d68;
+    /* color: #343d68; */
+    color: var(--fontDark);
     font-weight: 500;
 }
 .hero-description{
@@ -111,7 +114,7 @@
     height: 100px;
     width: 100px;
     position: absolute;
-    left: -100px;
+    left: 10%;
   
 }
 

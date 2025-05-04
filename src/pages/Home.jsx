@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import style from "./Home.module.css";
 import { MyButtu } from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "styled-components";
 
-export const Home = ({handleThemeChange,value}) => {
+export const Home = () => {
+  const {theme,setTheme}=useContext(ThemeContext);
   const navigate = useNavigate();
   const buttonColors={
     black: "white",
@@ -19,22 +21,22 @@ export const Home = ({handleThemeChange,value}) => {
   }
   const [butColor,changeButColor]=useState("red");
   const [texColor,changeTaxColor]=useState("white");
-  useEffect(() => {
-    console.log("Theme changed to:", value);
-    const root = document.documentElement;
+  // useEffect(() => {
+  //   console.log("Theme changed to:", value);
+  //   const root = document.documentElement;
 
-    const themeMap = {
-      black: "linear-gradient(to right, #434343, #000000)",
-      pink: "linear-gradient(to right, #19547b, #ffd89b)",
-      orange: "url('/coolbc1.png')",
-      skyblue:"linear-gradient(to right, #CFDEF3, #E0EAFC)",
-      white:"rgb(231,231,231)"
-    };
+  //   const themeMap = {
+  //     black: "linear-gradient(to right, #434343, #000000)",
+  //     pink: "linear-gradient(to right, #19547b, #ffd89b)",
+  //     orange: "url('/coolbc1.png')",
+  //     skyblue:"linear-gradient(to right, #CFDEF3, #E0EAFC)",
+  //     white:"rgb(231,231,231)"
+  //   };
 
-    root.style.setProperty("--body-bg", themeMap[value]);
-    changeButColor(buttonColors[value]);
-    changeTaxColor(texColors[value]);
-  }, [value]);
+  //   root.style.setProperty("--body-bg", themeMap[value]);
+  //   changeButColor(buttonColors[value]);
+  //   changeTaxColor(texColors[value]);
+  // }, [value]);
  
   const roles = ["Learner", "MERN Stack Developer", "Problem Solver"];
   const [roleIndex, setRoleIndex] = useState(0);
@@ -72,10 +74,10 @@ export const Home = ({handleThemeChange,value}) => {
     <div className={style["hero-section"]}>
       <div className={`${style.themeChanger}`}>
         <div className={style.allTypes}>
-          <div style={{borderRadius:"38% 62% 0% 100% / 69% 92% 8% 31% ",backgroundColor:`${value=="black"?"white":"black"}` }} className={`${style.innerGola}`} onClick={ ()=>handleThemeChange(`${value=="black"?"white":"black"}`)} ></div>
-          <div style={{borderRadius:"83% 17% 70% 30% / 100% 78% 22% 0%  ",backgroundColor:"pink"}} className={`${style.innerGola}`} onClick={ ()=>handleThemeChange("pink")} ></div>
-          <div style={{borderRadius:"100% 0% 66% 34% / 16% 9% 91% 84%  ",backgroundColor:"orange"}} className={`${style.innerGola}`} onClick={ ()=>handleThemeChange("orange")} ></div>
-          <div style={{borderRadius:"32% 68% 28% 72% / 0% 21% 79% 100%  ",backgroundColor:"skyblue"}} className={`${style.innerGola}`} onClick={ ()=>handleThemeChange("skyblue")} ></div>
+          <div style={{borderRadius:"38% 62% 0% 100% / 69% 92% 8% 31% ",backgroundColor:`${theme==="dark"?"white":"black"}` }} className={`${style.innerGola}`} onClick={ ()=>setTheme(theme==="dark" ? "light":"dark")} ></div>
+          <div style={{borderRadius:"83% 17% 70% 30% / 100% 78% 22% 0%  ",backgroundColor:"pink"}} className={`${style.innerGola}`} onClick={ ()=>setTheme("pink")} ></div>
+          <div style={{borderRadius:"100% 0% 66% 34% / 16% 9% 91% 84%  ",backgroundColor:"orange"}} className={`${style.innerGola}`} onClick={ ()=>setTheme("orange")} ></div>
+          <div style={{borderRadius:"32% 68% 28% 72% / 0% 21% 79% 100%  ",backgroundColor:"skyblue"}} className={`${style.innerGola}`} onClick={()=>setTheme("dark")} ></div>
         </div>
       </div>
       <div className={`${style.absolute} ${style["faded-text"]}`}>Mandeep</div>
@@ -88,7 +90,7 @@ export const Home = ({handleThemeChange,value}) => {
         <div className={style["hero-description"]}>
           I'm a software developer, and here is my portfolio website. Here you'll learn about my journey as a software developer.
         </div>
-        <MyButtu onClick={() => navigate("/form")} $bgColor={butColor} $textColor={texColor}>Hire me</MyButtu>
+        <MyButtu onClick={() => navigate("/hireme")} $bgColor={butColor} $textColor={texColor}>Hire me</MyButtu>
       </div>
       <div className={style["hero-section-right"]}>
         <div className={`${style.absolute} ${style.userimg}`}>

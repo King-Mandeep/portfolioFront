@@ -17,7 +17,7 @@ export const MainLayout = () => {
 
   return (
     <div id="wrapper">
-      <Navbar value={theme} />
+      {/* <Navbar value={theme} /> */}
       <Outlet />
       <section id="home">
         <Home handleThemeChange={handleThemeChange} value={theme} />

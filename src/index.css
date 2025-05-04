@@ -4,6 +4,9 @@
     box-sizing: border-box;
     
 }
+#root{
+  background-color: var(--bgDark);
+}
 #wrapper{
     height: 100vh;
     overflow-x: hidden;
@@ -17,8 +20,9 @@
   
 
 body {
+  background-color: var(--bgDark);
    
-    color: var(--body-color);
+    color: var(--fontDark);
     transition: background-color 0.3s ease, color 0.3s ease;
     background: var(--body-bg);
     transition: background 0.5s ease;

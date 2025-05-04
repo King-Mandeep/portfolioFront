@@ -1,5 +1,5 @@
 import "./Skills.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 import { useEffect, useState } from "react";
@@ -49,7 +49,11 @@ export const Skills=({value})=>{
     }
   };
 
+const navigate=useNavigate();
 
+const handleGoProject=()=>{
+  navigate("/projects");
+ }
     return(
     <div className="skillContainer">
      <div className="buttons">
@@ -61,7 +65,7 @@ export const Skills=({value})=>{
       <div className="skcontain">
       <div className="sktable">
 <div className="ofgrid">
-<button onClick={() => scrollToSection("JavaScript")} className="popupText">Go to Projects</button>
+<button onClick={() =>handleGoProject()} className="popupText">Go to Projects</button>
 
 <div className="absolute2">
           Skills
@@ -75,7 +79,7 @@ export const Skills=({value})=>{
         </ul></div>
 
         <div className="ofgrid">
-        <button onClick={() => scrollToSection("Node")} className="popupText">Go to Projects</button>
+        <button onClick={() =>handleGoProject()} className="popupText">Go to Projects</button>
        
          <ul>
         <li><h3>BACKEND:</h3></li>
@@ -85,7 +89,7 @@ export const Skills=({value})=>{
         </ul></div>
 
         <div className="ofgrid">
-        <button onClick={() => scrollToSection("Combine")} className="popupText">Go to Projects</button>
+        <button onClick={() =>handleGoProject()} className="popupText">Go to Projects</button>
        
           <ul>
         <li><h3>DATABASE:</h3></li>
@@ -94,7 +98,7 @@ export const Skills=({value})=>{
         <li>MONGOOSE</li></ul></div>
   
         <div className="ofgrid">
-        <button onClick={() => scrollToSection("DSA")} className="popupText">Go to Projects</button>
+        <button onClick={() =>handleGoProject()} className="popupText">Go to Projects</button>
         
            <ul>
         <li><h3>Language & DSA</h3></li>
